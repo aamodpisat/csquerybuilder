@@ -22,8 +22,6 @@ module.exports = [
     self.Classes = {
         typePrefix : "/content_types/",
         getOne : function(args){
-          console.log("heaers::::", headers);
-          //console.log("it came twice", host+prefix+this.typePrefix+'/'+args.options.classUid);
           return $http.get(host+ '/' +prefix + this.typePrefix + args.options.content_type_uid, {
             headers: headers
           }).then()

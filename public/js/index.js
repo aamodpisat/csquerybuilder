@@ -71,7 +71,6 @@ function LoginController($scope, $http, ContentstackService) {
             $http
                 .get(stackUrl, headers)
                 .then(function success(stack) {
-                    console.log(JSON.stringify(stack));
                     if(stack && stack.data) {
                         ContentstackService.setStackName(stack.data.stack.name);
                     }
@@ -122,7 +121,6 @@ function QueryBuilderController($scope, $http, ContentstackService) {
     $scope.apiKey = headers.headers.api_key;
     $scope.accessToken = headers.headers.access_token;
 
-    console.log("apieKey :::", $scope.apiKey, "accessToken:::", $scope.accessToken);
     // Display the fields of Content Type with query Builder
     $scope.getFields = function (contentTypeObject) {
         $scope.show = false;
