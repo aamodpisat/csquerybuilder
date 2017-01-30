@@ -1,0 +1,45 @@
+<div class="qb-select-field-modal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">
+            ×
+        </button>
+        <h3 class="modal-title">{{nestedFieldData.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <fieldset ng-show="!refLoading">
+            <div class="form-group" ng-show="!refError">
+                <label class="col-md-3 control-label mt5">Select field</label>
+                <div class="col-md-9">
+                    <input class="js-select-field-modal-select" placeholder="Select field">
+                    
+                </div>
+            </div>
+            <p ng-show="refError">
+                  Sorry! We could not find the referenced class for this field. May be it has been deleted.
+            </p>
+        </fieldset>
+        <fieldset ng-show="refLoading">
+            <img class="ref-loader" alt="" src="images/loaders/list-loader.gif" />
+        </fieldset>
+    </div>
+    <div class="modal-footer">
+        <div class="button-wrap">
+            <a class="btn btn-labeled btn-primary btn-sm pull-right" ng-click="ok()" ng-show="!refError">
+                <span class="btn-label">
+                  <i class="fa fa-check"></i>
+                </span>
+                <span>
+                  Done
+                </span>
+            </a>
+            <a class="btn btn-labeled btn-default btn-sm pull-left" ng-click="cancel()" ng-show="refError">
+                <span class="btn-label">
+                  <i class="fa fa-arrow-left"></i>
+                </span>
+                <span>
+                  close
+                </span>
+            </a>
+        </div>
+    </div>
+</div>

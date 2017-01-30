@@ -1,0 +1,1 @@
+module.exports = require('./ui-bootstrap-custom-tpls-0.10.0.min.js');

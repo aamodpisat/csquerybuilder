@@ -1,0 +1,14 @@
+<div class="parent-group">
+	<div class="qb-group-header clearfix">
+		<select class="js-group-condition-select group-condition-select">
+			<option value="$and">AND</option>
+			<option value="$or">OR</option>
+		</select>
+		<button class="btn btn-xs btn-info" ng-click="addGroup()">Add group</button>
+		<button class="btn btn-xs btn-info" ng-click="addRow()">Add condition</button>
+	</div>
+	<div class="group-body" ng-repeat="singleQuery in parentQueryObject._value track by $id(singleQuery)">
+		<div ng-if="!isGroup(singleQuery)" class="row-view-wrapper" oq-row-view="singleQuery" schema="schema" query-index="$index" query-array="parentQueryObject._value" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+		<div ng-if="isGroup(singleQuery)" class="group-view-wrapper" oq-group-view="singleQuery" schema="schema" query-index="$index" query-array="parentQueryObject._value" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+	</div>	
+</div>

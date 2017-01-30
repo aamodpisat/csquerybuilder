@@ -1,0 +1,4 @@
+{
+  "name": "angular-modal-service",
+  "main": "./angular-modal-service.shim.js"
+}

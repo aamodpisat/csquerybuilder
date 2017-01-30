@@ -1,0 +1,37 @@
+<div>
+    <div class="qb-operator-wrap clearfix">
+        
+        <div class="qb-text-block">
+            is
+        </div>
+        <select class="qb-operator-select js-operator-select opr-num-select">
+            <option value="$btw">between</option>
+            <option value="$lt">less than</option>
+            <option value="$gt">greater than</option>
+            <option value="$equals">equals</option>
+            <option value="$ne">not equal to</option>
+        </select>
+    </div>
+    
+    <div ng-switch on="operator" class="qb-operand-wrap">
+        <div ng-switch-when="$btw">
+            <input class="form-control qb-input opd-num-input js-number-btw-gt" type="text" rel="tooltip"  ng-model="operand.gt">
+            <div class="qb-text-block">
+                and 
+            </div>
+            <input class="form-control qb-input opd-num-input js-number-btw-lt" type="text"  rel="tooltip" ng-model="operand.lt">
+        </div>
+        <div class="input-group" ng-switch-when="$lt">
+            <input class="form-control qb-input js-number-lt" type="text" rel="tooltip"  ng-model="operand.lt">
+        </div>
+        <div class="input-group" ng-switch-when="$gt">
+            <input class="form-control qb-input js-number-gt" type="text" rel="tooltip"  ng-model="operand.gt">
+        </div>
+        <div class="input-group" ng-switch-when="$equals">
+            <input class="form-control qb-input js-number-equals" type="text" rel="tooltip" ng-model="operand.equals">
+        </div>
+        <div class="input-group" ng-switch-when="$ne">
+            <input class="form-control qb-input js-number-ne" rel="tooltip" type="text" ng-model="operand.ne">
+        </div>
+    </div>
+</div>

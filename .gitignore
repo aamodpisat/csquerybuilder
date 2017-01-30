@@ -1,0 +1,11 @@
+_logs/
+_content/
+node_modules/
+.idea/
+.idea/*
+*.idea
+_content/*
+_logs/*
+content/
+content/*
+*.directory

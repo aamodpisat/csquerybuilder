@@ -1,0 +1,26 @@
+<div class="qb-row">
+    <input type="hidden" ng-model="query._key">
+
+    <div class="qb-row-inner clearfix">
+
+        <div class="qb-column-wrap clearfix js-column-select-wrap" rel="tooltip">
+            <input type="hidden" ng-show="!query.fieldData.name" class="column-select js-column-select">
+            <div ng-show="query.fieldData.name" class="qb-text-block qb-nested-field-bar text-ellipsis">
+                {{query.fieldData.name}}
+            </div>
+        </div>
+
+        <div class="qb-rule-wrap" ng-switch on="currentDataType">
+            <div ng-switch-when="string" oq-string-rule-view current-query="currentQuery" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+            <div ng-switch-when="text" oq-string-rule-view current-query="currentQuery" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+            <div ng-switch-when="number" class="" oq-number-rule-view="currentQuery" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+            <div ng-switch-when="boolean" class="" oq-boolean-rule-view="currentQuery" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+            <div ng-switch-when="isodate" class="" oq-isodate-rule-view="currentQuery" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+            <div ng-switch-when="null"></div>
+        </div>
+        <button type="button" class="close qb-btn-delete-row" data-dismiss="modal" aria-hidden="true" ng-click="removeRow()">
+            ×
+        </button>
+    </div>
+   
+</div>

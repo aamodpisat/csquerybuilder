@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="querybuilder">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QueryBuilder</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/public/css/jquery.qtip.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+
+    <!--Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.23/angular.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.18.0/ramda.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash-compat/3.10.1/lodash.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script> -->
+    <script src="/bundle.js" type="text/javascript"></script>
+    <script src="/public/libs/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container" data-ng-controller="QueryBuilderController">
+    <header>
+        <div class="header">
+            <h2 align="center" ng-cloak>Built.io Contentstack Query Builder</h2>
+        </div>
+    </header>
+    <div ui-view id="view">
+        <div>
+            <form class="form-group">
+                <div class="col-sm-3">
+                    <label>Host:</label>
+                    <br>
+                    <h4>{{host}}</h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Stack's API Key:</label>
+                        <input type="text" placeholder="Stack's API Key" data-ng-model="apiKey" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <label>Enter Access Token:</label>
+                        <input type="text" placeholder="Access Token" data-ng-model="accessToken" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn-success fetch-button" data-ng-click="getData(host, apiKey, accessToken)">Load Stack</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="modal-body content" data-ng-if="cntTypes" ng-cloak>
+            <div class="col-sm-3">
+                <strong>STACK NAME:</strong>
+                <div class="stack">{{stack | uppercase}}</div>
+            </div>
+            <div class="col-sm-3">
+                <label>Select your Content Type:</label>
+                <select data-ng-model="contentTypeObject"
+                        data-ng-options="contentType.title for contentType in contentTypes track by contentType.uid"
+                        data-ng-change="getFields(contentTypeObject)" class="form-control" >
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label>Select your Environment:</label>
+                <select data-ng-model="environmentObject.name"
+                        data-ng-options="environment.name for environment in environments track by environment.name"
+                        id="env"
+                        class="form-control">
+                </select>
+
+            </div>
+            <button id="showQuery" style="display:none;" data-ng-click="showQueryBuilder()"></button>
+        </div>
+        <div class="loader" data-ng-if ="loader" ng-cloak></div>
+    </div>
+
+    <div ng-if="show" ng-cloak>
+        <div objects-query-builder="intermediateQuery" cls="fields" get-query-now="getQueryNow"
+             get-query-callback="getQueryCallback" api-key="apiKey" access-token="accessToken" api-host="apiHost"
+             prefix="prefix" class="qb-responsive ng-isolate-scope">
+        </div>
+        <button ng-click="getQuery()">Run</button>
+        <div class="result">
+            <div class="request" data-ng-if="showRequest">
+                <strong>Request URL :</strong>  {{reqUrl}} <br>
+                <div>
+                    <strong>Request Header : </strong>
+                    <pre>{{ headers | json }} </pre>
+                </div>
+            </div>
+            <div class="response" data-ng-if="result">
+                <strong>Response:</strong> <pre style="height: 500px;">{{ result | json }}</pre>
+                <div>
+                    <strong>Response Header : </strong>
+                    <pre>{{ resHeaders | json }} </pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="js-datepicker-wrap"></div>
+</body>
+
+<!-- <script src="/js/qb-bundle.min.js"></script>
+<script src="/js/index.js" type="text/javascript"></script> -->
+</html>

@@ -1,0 +1,17 @@
+<div>
+	<div class="qb-operator-wrap clearfix">
+    <select class="qb-operator-select js-operator-select opr-text-select">
+      <option value="$exists">is set</option>
+      <option value="$equals">equals</option>
+      <option value="$ne">not equal to</option>
+    </select>
+  </div>
+  <div ng-switch on="operator" class="qb-operand-wrap">
+    <div ng-switch-when="$ne">
+      <input type="hidden" class="js-operand-select opd-select" ng-value="operator" ng-model="operator">
+    </div>
+    <div ng-switch-when="$equals">
+		  <input type="hidden" class="js-operand-select opd-select" ng-value="operator" ng-model="operator">
+    </div>
+	</div>
+</div>

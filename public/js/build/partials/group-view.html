@@ -1,0 +1,17 @@
+<div class="qb-group">
+	<div class="qb-group-header clearfix">
+		<select class="js-group-condition-select group-condition-select">
+			<option value="$and">AND</option>
+			<option value="$or">OR</option>
+		</select>
+		<button class="btn btn-xs btn-info" ng-click="addGroup()">Add group</button>
+		<button class="btn btn-xs btn-info" ng-click="addRow()">Add condition</button>
+		<button class="btn btn-xs btn-danger btn-delete-group" ng-click="deleteGroup()">Delete group</button>
+	</div>
+	<div class="qb-group-body">
+		<div class="" ng-repeat="singleQuery in queryObject._value track by $id(singleQuery)">
+			<div ng-if="!isGroup(singleQuery)" class="" oq-row-view="singleQuery" schema="schema" query-index="$index" query-array="queryObject._value" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+			<div ng-if="isGroup(singleQuery)" class="qb-group-inner" oq-group-view="singleQuery" query-index="$index" query-array="queryObject._value" schema="schema" validate-query-now="validateQueryNow" promise-array="promiseArray"></div>
+		</div>
+	</div>
+</div>

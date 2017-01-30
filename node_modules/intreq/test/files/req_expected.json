@@ -1,0 +1,7 @@
+[
+{"id":1,"source":"module.exports = function (n) { return n * 111 }\n\n","deps":{}}
+,
+{"id":2,"source":"var bar = require(1);\nmodule.exports = function (n) { return n * bar(1) };","deps":{"1":1}}
+,
+{"id":3,"source":"var foo = require(1);\n\nconsole.log(foo(5));","deps":{"1":2},"entry":true}
+]

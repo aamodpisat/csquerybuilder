@@ -1,0 +1,4 @@
+{
+  "name": "moment",
+  "main": "./moment.shim.js"
+}

@@ -1,0 +1,4 @@
+{
+  "name": "smartadmin-notification",
+  "main": "./notifications.shim.js"
+}

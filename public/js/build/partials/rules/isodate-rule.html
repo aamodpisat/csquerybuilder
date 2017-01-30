@@ -1,0 +1,24 @@
+ <div>
+  <div class="qb-operator-wrap clearfix">
+      
+
+      <select class="qb-operator-select js-operator-select opr-date-select">
+        <option value="$gt">more than</option>
+        <option value="$lt">less than</option>
+        <option value="$equals">equals</option>
+    </select>
+  </div>
+
+  <div ng-switch on="operator" class="qb-operand-wrap qb-date-operand-wrap">
+      <div ng-switch-when="$gt" class="opd-date-wrap clearfix" rel="tooltip">
+          <input bootstrap-date-picker picker-class="pickerClass" time-zone-select-class="timeZoneSelectClass" date-time="operand.gt" enable-time-zone="enableTimeZone" enable-time="enableTime">
+      </div>
+      <div ng-switch-when="$lt" class="opd-date-wrap clearfix" rel="tooltip">
+          <input bootstrap-date-picker picker-class="pickerClass" time-zone-select-class="timeZoneSelectClass" date-time="operand.lt" enable-time-zone="enableTimeZone" enable-time="enableTime">
+      </div>
+      <div ng-switch-when="$equals" class="opd-date-wrap clearfix" rel="tooltip">
+        <input bootstrap-date-picker picker-class="pickerClass" time-zone-select-class="timeZoneSelectClass" date-time="operand.equals" enable-time-zone="enableTimeZone" enable-time="enableTime">
+      </div>
+  </div>
+
+</div>

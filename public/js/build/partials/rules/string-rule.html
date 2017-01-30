@@ -1,0 +1,36 @@
+<div>
+    <div class="qb-operator-wrap clearfix">
+
+
+        <select class="qb-operator-select js-operator-select opr-text-select">
+            <option value="$in">contains</option>
+            <option value="$not" ng-hide="hide">does not contain</option>
+            <option value="$exists" ng-hide="hide">is set</option>
+            <option value="$notExists" ng-hide="hide">is not set</option>
+            <option value="$equals">equals</option>
+            <option value="$ne">not equal to</option>
+        </select>
+    </div>
+
+    <div ng-switch on="operator" class="qb-operand-wrap">
+        <div class="input-group" ng-switch-when="$in">
+            <span class="input-group-addon">/</span>
+            <input class="form-control opd-regex-input qb-input js-string-regex" rel="tooltip" type="text" ng-model="operand.regex">
+            <span class="input-group-addon last-addon">/</span>
+            <input class="form-control opd-options-input qb-input js-string-options" rel="tooltip" type="text" ng-model="operand.options" data-placement="right">
+        </div>
+        <div ng-switch-when="$not" class="input-group">
+            <span class="input-group-addon">/</span>
+            <input class="form-control opd-regex-input qb-input js-string-not-regex" rel="tooltip" type="text" ng-model="operand.regex">
+            <span class="input-group-addon last-addon">/</span>
+            <input class="form-control opd-options-input qb-input js-string-not-options" rel="tooltip" type="text" ng-model="operand.options" data-placement="right">
+        </div>
+        <div ng-switch-when="$ne">
+            <input class="form-control qb-input js-string-ne" rel="tooltip" type="text" ng-model="operand.ne">
+        </div>
+        <div ng-switch-when="$equals">
+            <input class="form-control qb-input js-string-equals" rel="tooltip" type="text" ng-model="operand.equals">
+        </div>
+    </div>
+
+</div>

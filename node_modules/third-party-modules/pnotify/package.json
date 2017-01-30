@@ -1,0 +1,4 @@
+{
+  "name": "pnotify",
+  "main": "./pnotify.shim.js"
+}
