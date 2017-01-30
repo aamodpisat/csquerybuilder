@@ -1,77 +1,129 @@
 var angular  = require('angular');
 var uiRouter = require('angular-ui-router');
 var objectsQueryBuilder = require("./build/query-builder.js");
+
 angular
     .module('querybuilder', [uiRouter, objectsQueryBuilder.name])
-	.controller('QueryBuilderController', QueryBuilderController);
+    .controller('LoginController', LoginController)
+	.controller('QueryBuilderController', QueryBuilderController)
+    .service('ContentstackService', ContentstackService);
 
-QueryBuilderController.$inject =['$scope', '$http'];
-function QueryBuilderController($scope, $http) {
-    $scope.currentClass = {};
-    $scope.intermediateQuery = [];
+
+LoginController.$inject = ['$scope', '$http', 'ContentstackService'];
+QueryBuilderController.$inject =['$scope', '$http', 'ContentstackService'];
+
+function ContentstackService() {
+    return {
+        'setHeaders': function (value) {
+            localStorage.setItem("headers", JSON.stringify((value) ? value: {}))
+        },
+        'getHeaders': function () {
+            return JSON.parse(localStorage.getItem("headers"));
+        },
+        'setStackName': function (name) {
+            localStorage.setItem("stackName", name)
+        },
+        'getStackName': function () {
+            return localStorage.getItem("stackName");
+        },
+        'setEnvironment': function (data) {
+            localStorage.setItem("environments", JSON.stringify((data) ? data: []))
+        },
+        'getEnvironments': function () {
+            return JSON.parse(localStorage.getItem("environments"));
+        },
+        'setContentTypes': function (data) {
+            localStorage.setItem("contentTypes", JSON.stringify((data) ? data: []))
+        },
+        'getContentTypes': function () {
+            return JSON.parse(localStorage.getItem("contentTypes"));
+        }
+    }
+}
+
+function LoginController($scope, $http, ContentstackService) {
     $scope.host = "api.contentstack.io";
     $scope.prefix= "v3";
-    $scope.apiKey = "";
-    $scope.accessToken = "";
-    $scope.cntTypes = false;
+    $scope.apiKey = "bltade32e7a0dc1a8b0";
+    $scope.accessToken = "bltec8188d1452e3743";
     $scope.loader = false;
-    var contentTypeUrl = "", headers= "";
+    var headers= "";
 
-    // to get list of content types for a particular Stack;
     $scope.getData = function(host , apiKey, accessToken) {
-        $scope.host = host; $scope.apiKey = apiKey;  $scope.accessToken= accessToken;
-        headers = {
-            headers: {
-                'api_key': apiKey,
-                'access_token': accessToken,
-                'Content-Type': 'application/json'
-            }
-        };
-        $scope.apiHost= "https://" + $scope.host + "/";
-
+        $scope.host = host;
+        $scope.apiKey = apiKey;
+        $scope.accessToken= accessToken;
         if(apiKey && accessToken) {
+            headers = {
+                headers: {
+                    'api_key': apiKey,
+                    'access_token': accessToken,
+                    'Content-Type': 'application/json'
+                }
+            };
+            ContentstackService.setHeaders(headers);
+            $scope.apiHost= "https://" + $scope.host + "/";
             $scope.loader = true;
-            var stackUrl = $scope.apiHost + $scope.prefix + '/stacks';
+            var stackUrl = $scope.apiHost + $scope.prefix + '/stacks/',
+                contentTypesUrl = $scope.apiHost + $scope.prefix + '/content_types/',
+                envUrl = $scope.apiHost + $scope.prefix + '/environments/';
 
             $http
                 .get(stackUrl, headers)
-                .then(function success(objects) {
-                    $scope.stack = (objects.data.stack) ? objects.data.stack.name : '';
-                }, function err() {
-                });
-
-            var environmentUrl = $scope.apiHost + $scope.prefix + '/environments';
-            $http
-                .get(environmentUrl, headers)
-                .then(function success(objects){
-                    if(objects.data.environments && objects.data.environments.length) {
-                        objects.data.environments.push({'uid': "", 'name': 'None'});
-                        $scope.environments = objects.data.environments;
-                    } else {
-                        $scope.environments = ' No environments found';
+                .then(function success(stack) {
+                    console.log(JSON.stringify(stack));
+                    if(stack && stack.data) {
+                        ContentstackService.setStackName(stack.data.stack.name);
                     }
+                    $http
+                        .get(contentTypesUrl, headers)
+                        .then(function success(obj) {
+                            if(obj && obj.data && obj.data.content_types && obj.data.content_types.length) {
+                                ContentstackService.setContentTypes(obj.data.content_types);
+                            }
+                            $http
+                                .get(envUrl, headers)
+                                .then(function success(data) {
+                                    if(data && data.data && data.data.environments && data.data.environments.length) {
+                                        ContentstackService.setEnvironment(data.data.environments);
 
-
-                }, function err() {
+                                    }
+                                    window.location.href = 'query-builder.html';
+                                }, function error(err3) {
+                                    alert('err ::', err3);
+                                });
+                        }, function error(err1) {
+                            alert('err ::', err1);
+                        });
+                }, function err(err2) {
+                    alert("Error ::", err2);
                 });
-            contentTypeUrl = $scope.apiHost + $scope.prefix + '/content_types/';
 
-            $http
-              .get(contentTypeUrl, headers)
-              .then(function success(objects){
-                    $scope.loader = false;
-                    $scope.cntTypes = true;
-                    $scope.contentTypes = (objects.data && objects.data.content_types.length) ? objects.data.content_types : alert('Sorry, No Content Types found');
-              }, function err() {
-                    $scope.loader = false;
-                alert("Sorry, Please check your Stack's API Key and Access token");
-              });
         }
         else {
             alert('Please enter Built.io Contentstack Stack API Key and Access Token');
         }
     };
+}
 
+function QueryBuilderController($scope, $http, ContentstackService) {
+    $scope.currentClass = {};
+    $scope.intermediateQuery = [];
+    $scope.prefix= "v3";
+    $scope.apiHost= 'api.contentstack.io';
+    $scope.loader = false;
+    var contentTypeUrl = 'https://' + $scope.apiHost + '/' + $scope.prefix +'/content_types/',
+        headers= "";
+
+    $scope.stack = ContentstackService.getStackName();
+    $scope.contentTypes = ContentstackService.getContentTypes();
+    $scope.environments = ContentstackService.getEnvironments();
+    headers = ContentstackService.getHeaders();
+    $scope.apiKey = headers.headers.api_key;
+    $scope.accessToken = headers.headers.access_token;
+
+    console.log("apieKey :::", $scope.apiKey, "accessToken:::", $scope.accessToken);
+    // Display the fields of Content Type with query Builder
     $scope.getFields = function (contentTypeObject) {
         $scope.show = false;
         $scope.fields = contentTypeObject;

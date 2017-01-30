@@ -1,7 +1,8 @@
-workspace.xml
+
 node_modules/
 .idea/
 .idea/*
 *.idea
+.idea/workspace.xml
 content/
 
