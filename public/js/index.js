@@ -9,7 +9,7 @@ QueryBuilderController.$inject =['$scope', '$http'];
 function QueryBuilderController($scope, $http) {
     $scope.currentClass = {};
     $scope.intermediateQuery = [];
-    $scope.host = "cdn.contentstack.io";
+    $scope.host = "api.contentstack.io";
     $scope.prefix= "v3";
     $scope.apiKey = "";
     $scope.accessToken = "";
