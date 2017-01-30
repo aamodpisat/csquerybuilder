@@ -46989,7 +46989,7 @@ module.exports = [
       self.Header = {
         set : function(args){
           if(!_.isEmpty(args.api_key)){
-            host    = args.apihost;
+            host    = 'https://' + args.apihost;
             headers = args; 
             prefix  = args.prefix;
           }
@@ -46999,11 +46999,11 @@ module.exports = [
         }
       };
     self.Classes = {
-        typePrefix : "/content_types",
+        typePrefix : "/content_types/",
         getOne : function(args){
           console.log("heaers::::", headers);
           //console.log("it came twice", host+prefix+this.typePrefix+'/'+args.options.classUid);
-          return $http.get(host+prefix+this.typePrefix+'/'+args.options.content_type_uid, {
+          return $http.get(host+ '/' +prefix + this.typePrefix + args.options.content_type_uid, {
             headers: headers
           }).then()
         } 
