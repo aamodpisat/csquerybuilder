@@ -24,35 +24,36 @@
 
 </head>
 <body>
-<div class="container" data-ng-controller="QueryBuilderController">
+<div class="container query-builder-page" data-ng-controller="QueryBuilderController">
     <header>
         <div class="header">
             <h2 align="center" ng-cloak>Built.io Contentstack Query Builder</h2>
         </div>
     </header>
+    <div class="stack-name">
+            <strong>STACK NAME</strong>
+            <div class="stack">{{stack | uppercase}}</div>
+    </div>
     <div ui-view id="view">
         <div class="modal-body content" ng-cloak>
-            <div class="col-sm-3">
-                <strong>STACK NAME:</strong>
-                <div class="stack">{{stack | uppercase}}</div>
+            <div class="content-env-sec">
+                <div class="col-sm-5 styled-select">
+                    <label>Select your Environment</label>
+                    <select data-ng-model="environmentObject.name"
+                            data-ng-options="environment.name for environment in environments track by environment.name"
+                            id="env"
+                            class="form-control">
+                    </select>
+                </div>
+                <div class="col-sm-5 styled-select">
+                    <label>Select your Content Type</label>
+                    <select data-ng-model="contentTypeObject"
+                            data-ng-options="contentType.title for contentType in contentTypes track by contentType.uid"
+                            data-ng-change="getFields(contentTypeObject)" class="form-control">
+                    </select>
+                </div>
+                <button id="showQuery" style="display:none;" data-ng-click="showQueryBuilder()"></button>
             </div>
-            <div class="col-sm-3">
-                <label>Select your Content Type:</label>
-                <select data-ng-model="contentTypeObject"
-                        data-ng-options="contentType.title for contentType in contentTypes track by contentType.uid"
-                        data-ng-change="getFields(contentTypeObject)" class="form-control" >
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label>Select your Environment:</label>
-                <select data-ng-model="environmentObject.name"
-                        data-ng-options="environment.name for environment in environments track by environment.name"
-                        id="env"
-                        class="form-control">
-                </select>
-
-            </div>
-            <button id="showQuery" style="display:none;" data-ng-click="showQueryBuilder()"></button>
         </div>
         <div class="loader" data-ng-if ="loader" ng-cloak></div>
     </div>
@@ -62,7 +63,9 @@
              get-query-callback="getQueryCallback" api-key="apiKey" access-token="accessToken" api-host="apiHost"
              prefix="prefix" class="qb-responsive ng-isolate-scope">
         </div>
-        <button ng-click="getQuery()">Run</button>
+        <div class="run-btn">
+            <button ng-click="getQuery()">Run</button>
+        </div>
         <div class="result">
             <div class="request" data-ng-if="showRequest">
                 <strong>Request URL :</strong>  {{reqUrl}} <br>
