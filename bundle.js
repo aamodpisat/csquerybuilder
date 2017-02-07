@@ -46624,7 +46624,8 @@ module.exports = '<div class="qb-select-field-modal">\n' +
     '            </p>\n' +
     '        </fieldset>\n' +
     '        <fieldset ng-show="refLoading">\n' +
-    '            <img class="ref-loader" alt="" src="images/loaders/list-loader.gif" />\n' +
+    '            <!--<img class="ref-loader" alt="" src="images/loaders/list-loader.gif" />-->\n' +
+    '            <div class="ref-loader-nw"></div>\n' +
     '        </fieldset>\n' +
     '    </div>\n' +
     '    <div class="modal-footer">\n' +
