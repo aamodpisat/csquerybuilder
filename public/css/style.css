@@ -10,6 +10,16 @@
   outline: none !important;
   box-shadow: none !important;
 }
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 .wrapper {
   width: 900px;
   margin: auto;
@@ -179,6 +189,11 @@
   text-shadow: 0px 3px 0px #07526e, 0px 3px 1px #07526e;
 }
 /*Second page*/
+.query-builder-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
 .query-builder-page header .header h2 {
   color: #4f6471;
   font-size: 36px;
@@ -206,8 +221,13 @@
   word-wrap: break-word;
 }
 .query-builder-page .content {
-  width: 750px !important;
   margin: 0 auto;
+}
+@media (min-width: 991px) {
+  .query-builder-page .content {
+    width: 720px !important;
+    padding: 15px 0;
+  }
 }
 .query-builder-page .content .content-env-sec {
   overflow: hidden;
@@ -267,7 +287,6 @@
   background: #f5f6f7;
 }
 .query-builder-page .run-btn {
-  width: 750px;
   margin: 30px auto 30px;
   display: -webkit-flex;
   display: -moz-flex;
@@ -379,6 +398,11 @@
   min-height: 34px;
   background: #fff;
 }
+.query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .row-view-wrapper .qb-row .qb-row-inner .qb-input {
+  padding: 6px 9px;
+  min-height: 34px;
+  background: #fff;
+}
 .query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .group-view-wrapper {
   width: 100%;
 }
@@ -415,6 +439,11 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
+.query-builder-page .qb-responsive .query-builder .qb-text-block {
+  padding: 6px 9px;
+  min-height: 34px;
+  background: #fff;
+}
 .query-builder-page .query-builder .parent-group-view .parent-group .group-body:last-child > div.group-view-wrapper:last-child:before {
   height: 5.9em;
   top: -48px;
@@ -442,6 +471,9 @@
 }
 .select2-drop-active .select2-results .select2-highlighted .select2-result-label {
   padding: 7px 5px !important;
+}
+.select2-drop-active {
+  border: 1px solid #ccc !important;
 }
 /*Modal Box*/
 .modal .modal-dialog .modal-content .modal-body .form-group .control-label {
