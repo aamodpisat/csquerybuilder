@@ -48,7 +48,7 @@ a:focus{
 }
 .ref-loader-nw{
   position: absolute;
-  bottom: -56px;
+  bottom: -15px;
   left: 50%;
   border: 10px solid #f3f3f3; /* Light grey */
   border-top: 10px solid #3498db; /* Blue */
@@ -544,10 +544,28 @@ a:focus{
         }
       }
       .modal-body{
+        padding: 25px 14px;
         .form-group{
+          margin-bottom: 3px;
+          overflow:hidden;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: -o-flex;
+          display: flex;
+          -webkit-justify-content: center;
+          -moz-justify-content: center;
+          -ms-justify-content: center;
+          -o-justify-content: center;
+          justify-content: center;
+          .modal-box{
+
+          }
           .control-label{
             font-family: 'Open Sans', sans-serif;
             font-size: 14px;
+            margin-right: 15px;
+            line-height: 1.6;
           }
           .select2-container{
           }
@@ -560,7 +578,7 @@ a:focus{
       .modal-footer{
         .button-wrap{
           .btn-sm{
-            padding: 0 10px;
+            padding: 0 13px 0 0px;
           }
         }
       }

@@ -46613,10 +46613,9 @@ module.exports = '<div class="qb-select-field-modal">\n' +
     '    <div class="modal-body">\n' +
     '        <fieldset ng-show="!refLoading">\n' +
     '            <div class="form-group" ng-show="!refError">\n' +
-    '                <label class="col-md-3 control-label mt5">Select field</label>\n' +
-    '                <div class="col-md-9">\n' +
+    '                <label class="control-label mt5">Select field</label>\n' +
+    '                <div class="modal-box">\n' +
     '                    <input class="js-select-field-modal-select" placeholder="Select field">\n' +
-    '                    \n' +
     '                </div>\n' +
     '            </div>\n' +
     '            <p ng-show="refError">\n' +
