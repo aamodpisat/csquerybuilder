@@ -62,6 +62,9 @@ a:focus {
   animation: spin 2s linear infinite;
   z-index: 1000;
 }
+.query-loader {
+  bottom: -40px;
+}
 .submit-button {
   margin-left: 400px;
   margin-top: 15px;
@@ -505,4 +508,21 @@ a:focus {
 }
 .modal .modal-dialog .modal-content .modal-footer .button-wrap .btn-sm {
   padding: 0 13px 0 0px;
+}
+/*Result and Response CSS*/
+.result {
+  margin: 35px 0 0 0;
+}
+.result .request {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 0 20px 0;
+}
+.result .request > div {
+  margin: 15px 0 0;
+}
+.result .response {
+  font-family: 'Open Sans', sans-serif;
+}
+.result .response > div {
+  margin: 20px 0;
 }

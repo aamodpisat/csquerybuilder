@@ -58,6 +58,10 @@ a:focus{
   animation: spin 2s linear infinite;
   z-index: 1000;
 }
+.query-loader{
+  bottom: -40px;
+  //margin-bottom: 30px;
+}
 .submit-button {
   margin-left: 400px;
   margin-top: 15px;
@@ -582,6 +586,23 @@ a:focus{
           }
         }
       }
+    }
+  }
+}
+/*Result and Response CSS*/
+.result{
+  margin: 35px 0 0 0;
+  .request{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 0 20px 0;
+    > div{
+      margin:15px 0 0;
+    }
+  }
+  .response{
+    font-family: 'Open Sans', sans-serif;
+    > div{
+      margin:20px 0;
     }
   }
 }
