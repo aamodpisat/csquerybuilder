@@ -222,6 +222,12 @@ a:focus{
       word-wrap: break-word;
     }
   }
+  .select2-container-active{
+    .select2-choice, .select2-choices{
+      border: 1px solid #ccc !important;
+      outline:0;
+    }
+  }
   .content{
     //width: 750px !important;
     margin: 0 auto;
@@ -245,20 +251,20 @@ a:focus{
       padding: 40px 0;
       border-radius: 5px;
       .styled-select{
-        position:relative;
+        //position:relative;
         &:after{
-          content: "\f078";
-          font-family: FontAwesome;
-          font-style: normal;
-          font-weight: normal;
-          text-align: center;
-          line-height: 32px;
-          position: absolute;
-          width: 32px;
-          height: 32px;
-          right: 18px;
-          top: 33px;
-          pointer-events: none;
+          //content: "\f078";
+          //font-family: FontAwesome;
+          //font-style: normal;
+          //font-weight: normal;
+          //text-align: center;
+          //line-height: 32px;
+          //position: absolute;
+          //width: 32px;
+          //height: 32px;
+          //right: 18px;
+          //top: 33px;
+          //pointer-events: none;
         }
         label{
           color: #1894ca;
@@ -266,37 +272,69 @@ a:focus{
           font-size: 16px;
           font-weight: 400;
         }
-        select{
-          border:1px solid #ccc;
-          height: 45px;
-          //width: 250px;
-          line-height: 1;
-          position: relative;
-          font-size: 14px;
-          font-family: 'Open Sans', sans-serif;
-          border-radius: 2px !important;
-          background-color: #fbfbfb;
-          padding: 5px;
-          cursor: pointer;
-          appearance: none;
-          -moz-appearance: none;
-          -webkit-appearance: none;
-          &:hover{
-            background: #f5f6f7;
-          }
-          > option{
-            //color: #555;
-            //background-color: #fbfbfb;
-           //box-shadow: 0 0 10px 100px #fbfbfb inset;
-            &:hover{
-              //color: #555;
-              //z-index: 1;
-              //background-color: #fbfbfb;
-              //box-shadow: 0 0 10px 100px #fbfbfb inset;
-              //transition: all .2s ease-in-out;
+        .select2-container{
+          .select2-choice{
+            height: 40px;
+            line-height: 40px;
+            border-radius: 2px;
+            .select2-arrow{
+              b{
+                &:before{
+                  content: "\f078";
+                  //font-style: normal;
+                  //font-weight: normal;
+                  //text-align: center;
+                  //line-height: 32px;
+                  //width: 32px;
+                  //height: 32px;
+                  pointer-events: none;
+                }
+              }
             }
           }
         }
+        .select2-dropdown-open{
+          .select2-choice{
+            .select2-arrow{
+              b{
+                &:before{
+                  content: "\f077";
+                }
+              }
+            }
+          }
+        }
+        //select{
+        //  border:1px solid #ccc;
+        //  height: 45px;
+        //  //width: 250px;
+        //  line-height: 1;
+        //  position: relative;
+        //  font-size: 14px;
+        //  font-family: 'Open Sans', sans-serif;
+        //  border-radius: 2px !important;
+        //  background-color: #fbfbfb;
+        //  padding: 5px;
+        //  cursor: pointer;
+        //  appearance: none;
+        //  -moz-appearance: none;
+        //  -webkit-appearance: none;
+        //  &:hover{
+        //    background: #f5f6f7;
+        //  }
+        //  > option{
+        //    //color: #555;
+        //    //background-color: #fbfbfb;
+        //   //box-shadow: 0 0 10px 100px #fbfbfb inset;
+        //    &:hover{
+        //      //color: #555;
+        //      //z-index: 1;
+        //      //background-color: #fbfbfb;
+        //      //box-shadow: 0 0 10px 100px #fbfbfb inset;
+        //      //transition: all .2s ease-in-out;
+        //    }
+        //  }
+        //}
       }
     }
   }
@@ -509,6 +547,15 @@ a:focus{
     height: 105%;
   }
 }
+.select2-drop{
+  .select2-results{
+    li{
+      &:first-child{
+        //display: none;
+      }
+    }
+  }
+}
 .select2-drop-active{
   .select2-search{
     padding: 0 4px;
@@ -534,6 +581,7 @@ a:focus{
 .select2-drop-active{
   border: 1px solid #ccc !important;
 }
+
 /*Modal Box*/
 .modal-backdrop.fade{
 

@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="/public/css/jquery.qtip.css">
+    <link rel="stylesheet" href="/public/css/select2.css">
     <link rel="stylesheet" href="/public/css/style.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="/public/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/public/css/font-awesome.min.css">
 
     <!--Scripts-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.23/angular.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.18.0/ramda.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash-compat/3.10.1/lodash.min.js"></script>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script> -->
-    <script src="/bundle.js" type="text/javascript"></script>
-    <script src="/public/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bundle.js"></script>
+    <script type="text/javascript" src="/public/libs/select2.full.min.js"></script>
+    <script type="text/javascript" src="/public/js/csbscript.js"></script>
+    <script type="text/javascript" src="/public/libs/bootstrap.min.js"></script>
     <script type="text/javascript">
-    //$(document).ready(function(){
-//        $('.styled-select > select > option:first').hide();
-//        $('.styled-select > select > option:first').hide();
-    //});
+
     </script>
 
 </head>
@@ -47,15 +47,16 @@
                     <label>Select your Environment</label>
                     <select data-ng-model="environmentObject.name"
                             data-ng-options="environment.name for environment in environments track by environment.name"
-                            id="env"
-                            class="form-control">
+                            id="env" class="js-example-basic-single">
+                            <option selected="selected"></option>
                     </select>
                 </div>
                 <div class="col-sm-5 styled-select">
                     <label>Select your Content Type</label>
                     <select data-ng-model="contentTypeObject"
                             data-ng-options="contentType.title for contentType in contentTypes track by contentType.uid"
-                            data-ng-change="getFields(contentTypeObject)" class="form-control">
+                            data-ng-change="getFields(contentTypeObject)" class="js-example-basic-single">
+                            <option selected="selected"></option>
                     </select>
                 </div>
                 <button id="showQuery" style="display:none;" data-ng-click="showQueryBuilder()"></button>
