@@ -46782,17 +46782,17 @@ module.exports = '<div class="qb-select-field-modal">\n' +
     '    <div class="modal-footer">\n' +
     '        <div class="button-wrap">\n' +
     '            <a class="btn btn-labeled btn-primary btn-sm pull-right" ng-click="ok()" ng-show="!refError">\n' +
-    '                <span class="btn-label">\n' +
-    '                  <i class="fa fa-check"></i>\n' +
-    '                </span>\n' +
+    '                <!--<span class="btn-label">-->\n' +
+    '                  <!--<i class="fa fa-check"></i>-->\n' +
+    '                <!--</span>-->\n' +
     '                <span>\n' +
     '                  Done\n' +
     '                </span>\n' +
     '            </a>\n' +
     '            <a class="btn btn-labeled btn-default btn-sm pull-left" ng-click="cancel()" ng-show="refError">\n' +
-    '                <span class="btn-label">\n' +
-    '                  <i class="fa fa-arrow-left"></i>\n' +
-    '                </span>\n' +
+    '                <!--<span class="btn-label">-->\n' +
+    '                  <!--<i class="fa fa-arrow-left"></i>-->\n' +
+    '                <!--</span>-->\n' +
     '                <span>\n' +
     '                  close\n' +
     '                </span>\n' +

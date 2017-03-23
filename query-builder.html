@@ -13,7 +13,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="/public/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/public/css/font-awesome.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <!--Scripts-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.23/angular.min.js"></script> -->
@@ -22,28 +22,47 @@
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script> -->
     <script type="text/javascript" src="/bundle.js"></script>
     <script type="text/javascript" src="/public/libs/select2.full.min.js"></script>
-    <script type="text/javascript" src="/public/js/csbscript.js"></script>
     <script type="text/javascript" src="/public/libs/bootstrap.min.js"></script>
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript" src="/public/js/csbscript.js"></script>
 
 </head>
 <body>
-<div class="container query-builder-page" data-ng-controller="QueryBuilderController">
-    <header>
-        <div class="header">
-            <h2 align="center" ng-cloak>Built.io Contentstack Query Builder</h2>
+<header class="top-header-layout">
+    <div class="inner-content">
+        <div class="logo">
+            <a href="/">
+                <img src="public/images/logo_white.png" title="Built.io Contentstack" class="normal">
+            </a>
+            <span> | Query Builder</span>
         </div>
-    </header>
-    <div class="stack-name">
-            <strong>STACK NAME</strong>
-            <div class="stack">{{stack | uppercase}}</div>
     </div>
-    <div ui-view id="view">
+</header>
+<div class="container query-builder-page" data-ng-controller="QueryBuilderController">
+    <!--<div class="stack-name">-->
+        <!--&lt;!&ndash;<strong>STACK NAME</strong>&ndash;&gt;-->
+        <!--<div class="stack">-->
+            <!--{{stack | uppercase}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <div ui-view id="view" ng-class="{'loader-overlay': loader}">
+        <div class="overlay">
+            <div class="overlay-content">
+                <div id="loader-wrapper">
+                    <!-- ngIf: loader -->
+                    <div id="loader" data-ng-if="loader" class="ng-scope"></div>
+                    <!-- end ngIf: loader -->
+                </div>
+            </div>
+        </div>
         <div class="modal-body content" ng-cloak>
             <div class="content-env-sec">
-                <div class="col-sm-5 styled-select">
+                <div class="col-sm-4 styled-select">
+                    <label>Selected Stack</label>
+                    <div class="stack">
+                        {{stack | uppercase}}
+                    </div>
+                </div>
+                <div class="col-sm-4 styled-select">
                     <label>Select your Environment</label>
                     <select data-ng-model="environmentObject.name"
                             data-ng-options="environment.name for environment in environments track by environment.name"
@@ -51,7 +70,7 @@
                             <option selected="selected"></option>
                     </select>
                 </div>
-                <div class="col-sm-5 styled-select">
+                <div class="col-sm-4 styled-select">
                     <label>Select your Content Type</label>
                     <select data-ng-model="contentTypeObject"
                             data-ng-options="contentType.title for contentType in contentTypes track by contentType.uid"
@@ -62,7 +81,6 @@
                 <button id="showQuery" style="display:none;" data-ng-click="showQueryBuilder()"></button>
             </div>
         </div>
-        <div class="loader query-loader" data-ng-if ="loader" ng-cloak></div>
     </div>
 
     <div ng-if="show" ng-cloak>
@@ -75,15 +93,21 @@
         </div>
         <div class="result">
             <div class="request" data-ng-if="showRequest">
-                <strong>Request URL :</strong>  {{reqUrl}} <br>
-                <div>
+                <div class="rquest-url">
+                    <strong>Request URL :</strong></br>
+                    <div>{{reqUrl}}</div>
+                </div>
+                <div class="rquest-header">
                     <strong>Request Header : </strong>
                     <pre>{{ headers | json }} </pre>
                 </div>
             </div>
             <div class="response" data-ng-if="result">
-                <strong>Response:</strong> <pre style="height: 500px;">{{ result | json }}</pre>
-                <div>
+                <strong>Response:</strong>
+                <pre>
+                    {{ result | json }}
+                </pre>
+                <div class="response-header">
                     <strong>Response Header : </strong>
                     <pre>{{ resHeaders | json }} </pre>
                 </div>
