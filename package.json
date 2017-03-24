@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular-ui-router": "0.2.13",
+    "foreman": "^2.0.0",
     "gulp": "^3.9.1",
     "lodash": "3.10.1",
     "moment": "^2.15.1"
