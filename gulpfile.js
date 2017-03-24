@@ -14,9 +14,8 @@ gulp.task('webserver', function(){
     gulp.src('./')
         .pipe(plugins.webserver({
             fallback   : 'index.html',
-            host       : 'localhost',
-            livereload : true,
-            open       : true
+            host       : process.env.IP_ADDRESS || "0.0.0.0",
+            port       : process.env.PORT || 8000
         }))
 });
 
