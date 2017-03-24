@@ -8,10 +8,9 @@
     <div class="modal-body">
         <fieldset ng-show="!refLoading">
             <div class="form-group" ng-show="!refError">
-                <label class="col-md-3 control-label mt5">Select field</label>
-                <div class="col-md-9">
+                <label class="control-label mt5">Select field</label>
+                <div class="modal-box">
                     <input class="js-select-field-modal-select" placeholder="Select field">
-                    
                 </div>
             </div>
             <p ng-show="refError">
@@ -19,7 +18,8 @@
             </p>
         </fieldset>
         <fieldset ng-show="refLoading">
-            <img class="ref-loader" alt="" src="images/loaders/list-loader.gif" />
+            <!--<img class="ref-loader" alt="" src="images/loaders/list-loader.gif" />-->
+            <div class="ref-loader-nw"></div>
         </fieldset>
     </div>
     <div class="modal-footer">
