@@ -14,7 +14,7 @@ gulp.task('webserver', function(){
     gulp.src('./')
         .pipe(plugins.webserver({
             fallback   : 'index.html',
-            host       : '172.16.1.5',
+            host       : 'localhost',
             livereload : true,
             open       : true
         }))
