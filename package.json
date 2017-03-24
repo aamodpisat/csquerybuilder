@@ -52,7 +52,7 @@
     "watchify": "^2.4.0"
   },
   "scripts": {
-    "start": "node start.js"
+    "start": "./node_modules/.bin/gulp build"
   },
   "author": "",
   "license": "ISC",
