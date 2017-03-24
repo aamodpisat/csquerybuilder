@@ -1,1 +1,1 @@
-worker: ./node_modules/.bin/gulp build
+worker: npm start
