@@ -24,6 +24,24 @@ body {
   color: #FDFCFB !important;
   -webkit-font-smoothing: antialiased;
 }
+body .select2-drop-active {
+  border-bottom: solid 1px #009688;
+  border-left: solid 1px #009688;
+  border-right: solid 1px #009688;
+  border-top: solid 1px #ccc;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding-top: 0;
+}
+body .select2-drop-active.select2-with-searchbox {
+  padding-top: 12px;
+}
+body .select2-drop.select2-drop-above {
+  border-top: solid 1px #009688;
+}
+body .select2-drop.select2-drop-above.select2-drop-active {
+  border-top-width: 1px;
+}
 .wrapper {
   width: 900px;
   margin: auto;
@@ -358,9 +376,21 @@ body {
 }
 /*Second page*/
 .query-builder-page {
-  max-width: 1100px;
+  max-width: 1024px;
   margin: 0 auto;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .query-builder-page.container {
+    max-width: 1024px;
+    width: 100%;
+  }
+}
+@media (max-width: 865px) {
+  .query-builder-page.container {
+    max-width: 1024px;
+    width: 100%;
+  }
 }
 .query-builder-page header .header h2 {
   color: #4f6471;
@@ -390,11 +420,6 @@ body {
   line-height: 20px;
   margin: 0;
 }
-.query-builder-page .select2-container-active .select2-choice,
-.query-builder-page .select2-container-active .select2-choices {
-  border: 1px solid #ccc !important;
-  outline: 0;
-}
 .query-builder-page .content {
   margin: 0 auto;
 }
@@ -419,6 +444,20 @@ body {
   padding: 40px 0;
   border-radius: 5px;
 }
+@media (max-width: 767px) {
+  .query-builder-page .content .content-env-sec {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .query-builder-page .content .content-env-sec .styled-select {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+}
 .query-builder-page .content .content-env-sec .styled-select label {
   color: #009688;
   font-family: 'Roboto', sans-serif;
@@ -426,17 +465,38 @@ body {
   line-height: 18px;
   font-weight: 400;
 }
+@media (max-width: 767px) {
+  .query-builder-page .content .content-env-sec .styled-select label {
+    display: block;
+  }
+}
+.query-builder-page .content .content-env-sec .styled-select .select2-container {
+  min-width: auto;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .query-builder-page .content .content-env-sec .styled-select .select2-container {
+    max-width: 250px;
+  }
+}
 .query-builder-page .content .content-env-sec .styled-select .select2-container .select2-choice {
   height: 40px;
   line-height: 40px;
   border-radius: 2px;
+  border: 1px solid #ccc;
+  outline: 0;
 }
 .query-builder-page .content .content-env-sec .styled-select .select2-container .select2-choice .select2-chosen {
   width: 86%;
+  text-align: left;
 }
 .query-builder-page .content .content-env-sec .styled-select .select2-container .select2-choice .select2-arrow b:before {
   content: "\f078";
   pointer-events: none;
+}
+.query-builder-page .content .content-env-sec .styled-select .select2-dropdown-open .select2-choice {
+  border: 1px solid #009688;
+  border-radius: 2px;
 }
 .query-builder-page .content .content-env-sec .styled-select .select2-dropdown-open .select2-choice .select2-arrow b:before {
   content: "\f077";
@@ -479,13 +539,13 @@ body {
   background: #e64b50;
 }
 .query-builder-page .qb-responsive {
-  max-width: 1100px;
+  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
   display: inline-block;
 }
 .query-builder-page .qb-responsive .query-builder {
-  max-width: 1100px;
+  max-width: 1024px;
   width: 100%;
   display: inline-block;
   overflow-x: auto;
@@ -500,10 +560,14 @@ body {
   display: inline-block;
   margin: 0 25px 0 54px;
 }
-.query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .select2-container.select2-sm .select2-choice {
+.query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .select2-container .select2-choice {
   height: 34px;
   line-height: 34px;
   font-size: 14px;
+  border: 1px solid #ccc;
+}
+.query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .select2-container.select2-dropdown-open .select2-choice {
+  border: 1px solid #009688;
 }
 .query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .qb-group-header .group-condition-select {
   width: 94px;
@@ -806,7 +870,7 @@ body {
   color: #EB665C;
 }
 .select2-drop-active {
-  border: 1px solid #ccc !important;
+  padding-top: 12px;
 }
 .select2-drop-active .select2-search {
   padding: 0 4px;
@@ -891,27 +955,106 @@ body {
   margin: 35px 0 0 0;
 }
 .result strong {
-  margin: 0 0 10px 0;
+  margin: 0 0 7px 0;
+  display: block;
 }
 .result .request {
   font-family: 'Roboto', sans-serif;
   margin: 0 0 20px 0;
 }
 .result .request > div {
-  margin: 15px 0 0;
+  margin: 30px 0 0;
+  word-wrap: break-word;
 }
 .result .request .rquest-url > div {
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: rgba(128, 222, 234, 0.3);
   padding: 20px;
+  word-wrap: break-word;
 }
 .result .response {
   font-family: 'Roboto', sans-serif;
+  margin-top: 30px;
 }
 .result .response > div {
-  margin: 20px 0;
+  margin: 30px 0;
+  word-wrap: break-word;
 }
 .result pre {
   background-color: rgba(128, 222, 234, 0.3);
+}
+/*Date picker*/
+#js-datepicker-wrap .bootstrap-datetimepicker-widget {
+  margin-top: 5px;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+  background-color: rgba(128, 222, 234, 0.5);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table th {
+  color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.day {
+  color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.day:hover {
+  background-color: rgba(128, 222, 234, 0.3);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.old {
+  color: #777;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.old:hover {
+  background-color: rgba(128, 222, 234, 0.3);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.new {
+  color: #777;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.new:hover {
+  background-color: rgba(128, 222, 234, 0.3);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.hour {
+  color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.hour:hover {
+  background-color: rgba(128, 222, 234, 0.3);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.minute {
+  color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.minute:hover {
+  background-color: rgba(128, 222, 234, 0.3);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.second {
+  color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.second:hover {
+  background-color: rgba(128, 222, 234, 0.3);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.today:before {
+  border-bottom-color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.active {
+  background-color: rgba(77, 182, 172, 0.5);
+  color: #333;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: rgba(128, 222, 234, 0.5);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td.active.today:before {
+  border-bottom-color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td span {
+  color: #333;
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td span:hover {
+  background-color: rgba(128, 222, 234, 0.5);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget table td span.active {
+  background-color: rgba(77, 182, 172, 0.5);
+}
+#js-datepicker-wrap .bootstrap-datetimepicker-widget button[data-action] {
+  background-color: rgba(77, 182, 172, 0.5);
+  color: #333;
+  border: none;
 }

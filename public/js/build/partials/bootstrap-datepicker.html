@@ -1,6 +1,9 @@
 <div>
         <input type="text" class="form-control js-datetimepicker {{pickerClass}}" ng-model="showDate" ng-keyup="checkDate($event)" data-container="body"/>
         <select class="timeSelecter timezone-select js-timezone-select" ng-show="enableTimeZone">
-            <option ng-repeat="zone in timeZone" value="{{zone}}">{{zone}}</option></select>
+            <option ng-repeat="zone in timeZone" value="{{zone}}">
+                {{zone}}
+            </option>
+        </select>
 </div>
 

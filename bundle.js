@@ -43,7 +43,7 @@ function ContentstackService() {
 }
 
 function LoginController($scope, $http, ContentstackService) {
-    $scope.host = "api.contentstack.io";
+    $scope.host = "cdn.contentstack.io";
     $scope.prefix= "v3";
     $scope.apiKey = "bltade32e7a0dc1a8b0";
     $scope.accessToken = "bltec8188d1452e3743";
@@ -110,7 +110,7 @@ function QueryBuilderController($scope, $http, ContentstackService) {
     $scope.currentClass = {};
     $scope.intermediateQuery = [];
     $scope.prefix= "v3";
-    $scope.apiHost= 'api.contentstack.io';
+    $scope.apiHost= 'cdn.contentstack.io';
     $scope.loader = false;
     var contentTypeUrl = 'https://' + $scope.apiHost + '/' + $scope.prefix +'/content_types/',
         headers= "";
