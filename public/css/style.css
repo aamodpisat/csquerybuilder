@@ -635,6 +635,9 @@ body .select2-drop.select2-drop-above.select2-drop-active {
   border-color: #ccc;
 }
 .query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .row-view-wrapper .qb-row .qb-row-inner .qb-btn-delete-row {
+  position: absolute;
+  top: -14px;
+  right: -13px;
   padding: 6px 9px;
   color: #6e6c6c;
   z-index: 99;
@@ -659,15 +662,20 @@ body .select2-drop.select2-drop-above.select2-drop-active {
   display: inline-block;
 }
 .query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .group-view-wrapper .qb-group .qb-group-body .qb-row .qb-row-inner {
+  position: relative;
   background-color: rgba(77, 182, 172, 0.2);
   padding: 10px;
   margin: 7px 0;
+  border-radius: 4px;
 }
 .query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .group-view-wrapper .qb-group .qb-group-body .qb-row .qb-row-inner .qb-rule-wrap {
   min-width: 0;
 }
 .query-builder-page .qb-responsive .query-builder .parent-group-view .parent-group .group-view-wrapper .qb-group .qb-group-body .qb-row .qb-row-inner .qb-btn-delete-row {
-  padding: 7px 9px;
+  position: absolute;
+  top: -5px;
+  right: -4px;
+  padding: 6px 9px;
   color: #6e6c6c;
   z-index: 99;
   opacity: 1;
@@ -918,6 +926,11 @@ body .select2-drop.select2-drop-above.select2-drop-active {
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
+}
+.modal .modal-dialog .modal-content .modal-body .form-group .modal-box .select2-dropdown-open .select2-choice {
+  border: 1px solid #009688;
+  border-radius: 2px;
+  border-bottom: none;
 }
 .modal .modal-dialog .modal-content .modal-body .form-group .control-label {
   font-family: 'Roboto', sans-serif;

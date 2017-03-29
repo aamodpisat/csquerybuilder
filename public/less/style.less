@@ -679,6 +679,9 @@ body{
                   }
                 }
                 .qb-btn-delete-row{
+                  position: absolute;
+                  top: -14px;
+                  right: -13px;
                   padding: 6px 9px;
                   color: #6e6c6c;
                   z-index: 99;
@@ -711,15 +714,20 @@ body{
                 .qb-row{
                   //padding: 17px 0 7px;
                   .qb-row-inner{
+                    position: relative;
                     background-color: rgba(77,182,172,0.2);
                     padding: 10px;
                     margin: 7px 0;
+                    border-radius: 4px;
                     .qb-rule-wrap {
                       //min-width: 392px;
                       min-width: 0;
                     }
                     .qb-btn-delete-row{
-                      padding: 7px 9px;
+                      position: absolute;
+                      top: -5px;
+                      right: -4px;
+                      padding: 6px 9px;
                       color: #6e6c6c;
                       z-index: 99;
                       opacity: 1;
@@ -982,7 +990,13 @@ body{
           -o-justify-content: center;
           justify-content: center;
           .modal-box{
-
+            .select2-dropdown-open{
+              .select2-choice{
+                border: 1px solid #009688;
+                border-radius: 2px;
+                border-bottom: none;
+              }
+            }
           }
           .control-label {
             font-family: 'Roboto', sans-serif;
