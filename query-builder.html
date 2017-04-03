@@ -105,17 +105,15 @@
                 </div>
                 <div class="rquest-header">
                     <strong>Request Header : </strong>
-                    <pre>{{ headers | json }} </pre>
+                    <pre><code>{{ headers | json }}</code></pre>
                 </div>
             </div>
             <div class="response" data-ng-if="result">
                 <strong>Response:</strong>
-                <pre>
-                    {{ result | json }}
-                </pre>
+                <pre><code>{{ result | json }}</code></pre>
                 <div class="response-header">
                     <strong>Response Header : </strong>
-                    <pre>{{ resHeaders | json }} </pre>
+                    <pre><code>{{ resHeaders | json }}</code></pre>
                 </div>
             </div>
 
