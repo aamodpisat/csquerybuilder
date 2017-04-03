@@ -14,7 +14,7 @@ gulp.task('webserver', function(){
     gulp.src('./')
         .pipe(plugins.webserver({
             fallback   : 'index.html',
-            host       : process.env.IP_ADDRESS || "localhost",
+            host       : process.env.IP_ADDRESS || "0.0.0.0",
             port       : process.env.PORT || 8000,
             livereload : true,
             open       : true
