@@ -1,0 +1,4 @@
+{
+  "name": "qtip",
+  "main": "./qtip.shim.js"
+}

@@ -1,5 +1,5 @@
-require('third-party-modules/smartadmin/notification');
-require('third-party-modules/pnotify');
+require('./../third-party-modules/smartadmin/notification');
+require('./../third-party-modules/pnotify');
 
 var notifyOptions = {
 	title: "",

@@ -1,6 +1,6 @@
 'use strict';
 var moment= require('moment');
-require('third-party-modules/bootstrap-datetimepicker');
+require('./../third-party-modules/bootstrap-datetimepicker');
 var datepickerTemplate = require('../partials/bootstrap-datepicker.html');
 module.exports = [
   '$compile',

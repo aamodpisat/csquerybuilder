@@ -26,6 +26,12 @@ function ContentstackService() {
         'getStackName': function () {
             return localStorage.getItem("stackName");
         },
+        'setLocales': function (data) {
+            localStorage.setItem("locales", JSON.stringify((data) ? data: []))
+        },
+        'getLocales': function () {
+            return JSON.parse(localStorage.getItem("locales"));
+        },
         'setEnvironment': function (data) {
             localStorage.setItem("environments", JSON.stringify((data) ? data: []))
         },
@@ -66,7 +72,8 @@ function LoginController($scope, $http, ContentstackService) {
             $scope.loader = true;
             var stackUrl = $scope.apiHost + $scope.prefix + '/stacks/',
                 contentTypesUrl = $scope.apiHost + $scope.prefix + '/content_types/',
-                envUrl = $scope.apiHost + $scope.prefix + '/environments/';
+                envUrl = $scope.apiHost + $scope.prefix + '/environments/',
+                localeUrl = $scope.apiHost + $scope.prefix + '/locales/';
 
             $http
                 .get(stackUrl, headers)
@@ -87,7 +94,16 @@ function LoginController($scope, $http, ContentstackService) {
                                         ContentstackService.setEnvironment(data.data.environments);
 
                                     }
-                                    window.location.href = 'query-builder.html';
+                                    $http
+                                        .get(localeUrl, headers)
+                                        .then(function success(data){
+                                            if(data && data.data && data.data.locales && data.data.locales.length) {
+                                                ContentstackService.setLocales(data.data.locales);
+                                            }
+                                            window.location.href = 'query-builder.html';
+                                        }, function error(err4) {
+                                            alert('err ::', err4);
+                                        });
                                 }, function error(err3) {
                                     alert('err ::', err3);
                                 });
@@ -117,10 +133,12 @@ function QueryBuilderController($scope, $http, ContentstackService) {
     $scope.stack = ContentstackService.getStackName();
     $scope.contentTypes = ContentstackService.getContentTypes();
     $scope.environments = ContentstackService.getEnvironments();
+    $scope.locales = ContentstackService.getLocales();
     headers = ContentstackService.getHeaders();
     $scope.apiKey = headers.headers.api_key;
     $scope.accessToken = headers.headers.access_token;
 
+    console.log("locales kay ahe ??? mala pls saang =====", $scope.locales);
     // Display the fields of Content Type with query Builder
     $scope.getFields = function (contentTypeObject) {
         $scope.show = false;
@@ -142,12 +160,15 @@ function QueryBuilderController($scope, $http, ContentstackService) {
 
     $scope.getQueryCallback = function(query) {
         var envElement= document.getElementById('env');
-        var env = angular.element(envElement).val(),
-            envQuery = (env != (undefined  && ' ?' && 'None' ))  ? 'environment=' + env + '&': '';
+        var env = angular.element(envElement).val();
+        var localeElement= document.getElementById('locale');
+        var locale = angular.element(localeElement).val(),
+            envQuery = (env != (undefined  && ' ?' && 'None' ))  ? 'environment=' + env + '&': '',
+            localeQuery = (locale != (undefined  && ' ?' && 'None' ))  ? 'locale=' + locale + '&': '';
         query.then(function(res){
             $scope.loader = true;
             var query = $scope.query = res,
-                queryUrl = contentTypeUrl +  $scope.fields.uid + '/entries?'+ envQuery + 'query=' + JSON.stringify(query);
+                queryUrl = contentTypeUrl +  $scope.fields.uid + '/entries?'+ envQuery + localeQuery +'query=' + JSON.stringify(query);
             $scope.showRequest = true;
             $http
                 .get(queryUrl, headers)

@@ -1,0 +1,4 @@
+{
+  "name": "smartadmin-widgets",
+  "main": "./widgets.shim.js"
+}
