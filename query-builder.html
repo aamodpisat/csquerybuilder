@@ -54,13 +54,21 @@
         </div>
         <div class="modal-body content" ng-cloak>
             <div class="content-env-sec">
-                <div class="col-sm-4 styled-select">
+                <div class="col-sm-3 styled-select">
                     <label>Selected Stack</label>
                     <div class="stack">
                         {{stack | uppercase}}
                     </div>
                 </div>
-                <div class="col-sm-4 styled-select">
+                <div class="col-sm-3 styled-select">
+                    <label>Select your Locale</label>
+                    <select data-ng-model="localeObject.code"
+                            data-ng-options="locale.code for locale in locales track by locale.code"
+                            id="locale" class="js-example-basic-single">
+                        <option selected="selected"></option>
+                    </select>
+                </div>
+                <div class="col-sm-3 styled-select">
                     <label>Select your Environment</label>
                     <select data-ng-model="environmentObject.name"
                             data-ng-options="environment.name for environment in environments track by environment.name"
@@ -68,7 +76,7 @@
                             <option selected="selected"></option>
                     </select>
                 </div>
-                <div class="col-sm-4 styled-select">
+                <div class="col-sm-3 styled-select">
                     <label>Select your Content Type</label>
                     <select data-ng-model="contentTypeObject"
                             data-ng-options="contentType.title for contentType in contentTypes track by contentType.uid"

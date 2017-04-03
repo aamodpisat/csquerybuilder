@@ -14,7 +14,7 @@ gulp.task('webserver', function(){
     gulp.src('./')
         .pipe(plugins.webserver({
             fallback   : 'index.html',
-            host       : process.env.IP_ADDRESS || "0.0.0.0",
+            host       : process.env.IP_ADDRESS || "localhost",
             port       : process.env.PORT || 8000,
             livereload : true,
             open       : true
@@ -28,7 +28,7 @@ gulp.task('browserify',function(cb) {
     })
         .bundle()
         .on('error', function (err) {
-            gutil.log(err);
+            gutil.log(err.message);
             this.emit('end');
         })
         .pipe(source('bundle.js'))

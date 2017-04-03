@@ -7,11 +7,11 @@ require('./css/style.min.css');require('./css/bootstrap-datetimepicker.min.css')
 // CSS END HERE
 
 // Include Modules
-require('third-party-modules/select2');
-require('third-party-modules/qtip');
-require('third-party-modules/bootstrap');
-require('third-party-modules/angular-ui-bootstrap');
-require('third-party-modules/angular-modal-service');
+require('./third-party-modules/select2');
+require('./third-party-modules/qtip');
+require('./third-party-modules/bootstrap');
+require('./third-party-modules/angular-ui-bootstrap');
+require('./third-party-modules/angular-modal-service');
 require('moment');
 
 // Directives

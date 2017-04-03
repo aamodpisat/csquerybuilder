@@ -1,4 +1,4 @@
-require('third-party-modules/qtip');
+require('./../third-party-modules/qtip');
 
 module.exports = [
 	function() {
