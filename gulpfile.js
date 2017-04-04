@@ -15,7 +15,7 @@ gulp.task('webserver', function(){
         .pipe(plugins.webserver({
             fallback   : 'index.html',
             host       : process.env.IP_ADDRESS || "0.0.0.0",
-            port       : process.env.PORT || 8000,
+            port       : process.env.PORT,
             livereload : true,
             open       : true
         }))
