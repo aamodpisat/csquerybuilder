@@ -101,7 +101,10 @@
             <div class="request" data-ng-if="showRequest">
                 <div class="rquest-url">
                     <strong>Request URL :</strong>
-                    <div>{{reqUrl}}</div>
+                    <div id="requestUrl">{{reqUrl}}</div>
+                    <!--<button class="btn" ngclipboard data-clipboard-target="#requestUrl">-->
+                        <!--Copy to clipboard-->
+                    <!--</button>-->
                 </div>
                 <div class="rquest-header">
                     <strong>Request Header : </strong>

@@ -996,6 +996,7 @@ body .select2-drop.select2-drop-above.select2-drop-active {
 }
 .result pre {
   background-color: rgba(128, 222, 234, 0.3);
+  max-height: 500px;
 }
 /*Date picker*/
 #js-datepicker-wrap .bootstrap-datetimepicker-widget {
