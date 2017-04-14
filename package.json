@@ -7,9 +7,7 @@
     "lodash": "3.10.1",
     "moment": "^2.15.1",
     "ngclipboard": "^1.1.1",
-    "traverse": "^0.6.6"
-  },
-  "devDependencies": {
+    "traverse": "^0.6.6",
     "angular": "^1.5.8",
     "angular-mocks": "^1.5.8",
     "angular-ui-router": "^0.2.13",
@@ -52,6 +50,8 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.4.0"
+  },
+  "devDependencies": {
   },
   "scripts": {
     "start": "./node_modules/.bin/gulp build"
