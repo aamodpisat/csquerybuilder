@@ -1,13 +1,13 @@
 var angular  = require('angular');
 var uiRouter = require('angular-ui-router');
+var clipBoard = require('ngclipboard');
 var objectsQueryBuilder = require("./build/query-builder.js");
 
 angular
-    .module('querybuilder', [uiRouter, objectsQueryBuilder.name])
+    .module('querybuilder', [uiRouter, objectsQueryBuilder.name, clipBoard])
     .controller('LoginController', LoginController)
 	.controller('QueryBuilderController', QueryBuilderController)
     .service('ContentstackService', ContentstackService);
-
 
 LoginController.$inject = ['$scope', '$http', 'ContentstackService'];
 QueryBuilderController.$inject =['$scope', '$http', 'ContentstackService'];
@@ -48,10 +48,10 @@ function ContentstackService() {
 }
 
 function LoginController($scope, $http, ContentstackService) {
-    $scope.host = "api.contentstack.io";
+    $scope.host = "cdn.contentstack.io";
     $scope.prefix= "v3";
-    $scope.apiKey = "bltade32e7a0dc1a8b0";
-    $scope.accessToken = "bltec8188d1452e3743";
+    $scope.apiKey = "bltfba273472b076eba";
+    $scope.accessToken = "blta7353d11182cf62d3c125cbe";
     $scope.loader = false;
     var headers= "";
 
@@ -125,7 +125,7 @@ function QueryBuilderController($scope, $http, ContentstackService) {
     $scope.currentClass = {};
     $scope.intermediateQuery = [];
     $scope.prefix= "v3";
-    $scope.apiHost= 'api.contentstack.io';
+    $scope.apiHost= "cdn.contentstack.io";
     $scope.loader = false;
     var contentTypeUrl = 'https://' + $scope.apiHost + '/' + $scope.prefix +'/content_types/',
         headers= "";
