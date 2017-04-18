@@ -979,12 +979,112 @@ body .select2-drop.select2-drop-above.select2-drop-active {
   margin: 30px 0 0;
   word-wrap: break-word;
 }
+.result .request .rquest-url {
+  /*.copied::after {
+        position: absolute;
+        top: 12%;
+        right: 110%;
+        display: block;
+        content: "copied";
+        font-size: 0.75em;
+        padding: 2px 3px;
+        color: #fff;
+        background-color: #22a;
+        border-radius: 3px;
+        opacity: 0;
+        will-change: opacity, transform;
+        animation: showcopied 1.5s ease;
+      }
+
+      @keyframes showcopied {
+        0% {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+        70% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        100% {
+          opacity: 0;
+        }
+      }*/
+}
 .result .request .rquest-url > div {
+  background-color: rgba(128, 222, 234, 0.3);
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: rgba(128, 222, 234, 0.3);
-  padding: 20px;
-  word-wrap: break-word;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+.result .request .rquest-url .url-query {
+  float: left;
+  line-height: 34px;
+  margin: 0 1%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 94%;
+}
+@media (max-width: 815px) {
+  .result .request .rquest-url .url-query {
+    width: 93%;
+  }
+}
+@media (max-width: 680px) {
+  .result .request .rquest-url .url-query {
+    width: 92%;
+  }
+}
+@media (max-width: 540px) {
+  .result .request .rquest-url .url-query {
+    width: 90%;
+  }
+}
+@media (max-width: 450px) {
+  .result .request .rquest-url .url-query {
+    width: 89%;
+  }
+}
+@media (max-width: 350px) {
+  .result .request .rquest-url .url-query {
+    width: 87%;
+  }
+}
+.result .request .rquest-url .btn {
+  background-color: #fff;
+  border-left: 1px solid #ccc;
+  border-radius: 0 4px 4px 0;
+  box-sizing: border-box;
+  float: right;
+  padding: 6px 1%;
+  width: 4%;
+}
+@media (max-width: 815px) {
+  .result .request .rquest-url .btn {
+    width: 5%;
+  }
+}
+@media (max-width: 680px) {
+  .result .request .rquest-url .btn {
+    width: 6%;
+  }
+}
+@media (max-width: 540px) {
+  .result .request .rquest-url .btn {
+    width: 7%;
+  }
+}
+@media (max-width: 450px) {
+  .result .request .rquest-url .btn {
+    width: 8%;
+  }
+}
+@media (max-width: 350px) {
+  .result .request .rquest-url .btn {
+    width: 10%;
+  }
 }
 .result .response {
   font-family: 'Roboto', sans-serif;
