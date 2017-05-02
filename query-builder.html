@@ -33,15 +33,62 @@
             </a>
             <span> | Query Builder</span>
         </div>
+        <div class="edit-stack">
+            <!--Button to Trigger Modal-->
+            <a href="#" id="btnShow" class="button">
+                <span>Edit Stack</span>
+            </a>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade editModal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Stack</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="query-login-page" data-ng-controller="LoginController">
+                            <div ui-view id="view" class="login-page" ng-class="{'loader-mask': loader}">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <div id="loader-wrapper">
+                                            <div id="loader" data-ng-if="loader" ng-cloak></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="form-group">
+                                    <div class="row-centered">
+                                        <div class="col-xs-9 col-sm-5 col-centered">
+                                            <label>Stack's API Key</label>
+                                            <input type="text" placeholder="Stack's API Key" data-ng-model="apiKey" class="form-control">
+                                        </div>
+                                        <div class="col-xs-9 col-sm-5 col-centered">
+                                            <label>Enter Access Token</label>
+                                            <input type="text" placeholder="Access Token" data-ng-model="accessToken" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row-centered">
+                                        <div class="col-centered button-sec">
+                                            <button class="btn-success fetch-button" data-ng-click="getData(host, apiKey, accessToken)">Load
+                                                Stack
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="modal-footer">-->
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 <div class="container query-builder-page" data-ng-controller="QueryBuilderController">
-    <!--<div class="stack-name">-->
-        <!--&lt;!&ndash;<strong>STACK NAME</strong>&ndash;&gt;-->
-        <!--<div class="stack">-->
-            <!--{{stack | uppercase}}-->
-        <!--</div>-->
-    <!--</div>-->
     <div ui-view id="view" ng-class="{'loader-overlay': loader}">
         <div class="overlay">
             <div class="overlay-content">
@@ -108,10 +155,6 @@
                             <img src="public/images/clippy.svg" width="13" alt="Copy to clipboard">
                         </button>
                     </div>
-                    <!--<div class="btn" ngclipboard data-clipboard-target="#requestUrl">-->
-                        <!--<img src="public/images/clippy.svg" alt="Copy to clipboard">-->
-                        <!--&lt;!&ndash;<i class="fa fa-files-o" aria-hidden="true"></i>&ndash;&gt;-->
-                    <!--</div>-->
                 </div>
                 <div class="rquest-header">
                     <strong>Request Header : </strong>

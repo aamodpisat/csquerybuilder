@@ -10,3 +10,9 @@ $(window).on('load resize', function () {
 		equalheight.css('height','auto');
 	}
 });
+
+$(function () {
+	$("#btnShow").click(function(){
+		$('#editModal').modal('show');
+	});
+});
