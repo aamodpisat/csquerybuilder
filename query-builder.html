@@ -36,12 +36,13 @@
         <div class="edit-stack">
             <!--Button to Trigger Modal-->
             <a href="#" id="btnShow" class="button">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 <span>Edit Stack</span>
             </a>
         </div>
         <!-- Modal -->
         <div class="modal fade editModal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -59,17 +60,17 @@
                                 </div>
                                 <form class="form-group">
                                     <div class="row-centered">
-                                        <div class="col-xs-9 col-sm-5 col-centered">
-                                            <label>Stack's API Key</label>
+                                        <div class="col-centered">
+                                            <label>API Key:</label>
                                             <input type="text" placeholder="Stack's API Key" data-ng-model="apiKey" class="form-control">
                                         </div>
-                                        <div class="col-xs-9 col-sm-5 col-centered">
-                                            <label>Enter Access Token</label>
+                                        <div class="col-centered">
+                                            <label>Access Token:</label>
                                             <input type="text" placeholder="Access Token" data-ng-model="accessToken" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row-centered">
-                                        <div class="col-centered button-sec">
+                                        <div class="button-sec">
                                             <button class="btn-success fetch-button" data-ng-click="getData(host, apiKey, accessToken)">Load
                                                 Stack
                                             </button>
