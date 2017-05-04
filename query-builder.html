@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="/public/css/jquery.qtip.css">
     <link rel="stylesheet" href="/public/css/select2.css">
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/main.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="/public/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/public/css/font-awesome.min.css">
@@ -32,13 +32,6 @@
                 <img src="public/images/logo_white.png" title="Built.io Contentstack" class="normal">
             </a>
             <span> | Query Builder</span>
-        </div>
-        <div class="edit-stack">
-            <!--Button to Trigger Modal-->
-            <a href="#" id="btnShow" class="button">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                <span>Edit Stack</span>
-            </a>
         </div>
         <!-- Modal -->
         <div class="modal fade editModal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -71,19 +64,15 @@
                                     </div>
                                     <div class="row-centered">
                                         <div class="button-sec">
-                                            <button class="btn-success fetch-button" data-ng-click="getData(host, apiKey, accessToken)">Load
+                                            <a class="fetch-button" data-ng-click="getData(host, apiKey, accessToken)">Load
                                                 Stack
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!--<div class="modal-footer">-->
-                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -104,8 +93,11 @@
             <div class="content-env-sec">
                 <div class="col-sm-3 styled-select">
                     <label>Selected Stack</label>
-                    <div class="stack">
+                    <div class="stack" id="btnShow" title="{{stack}}">
                         {{stack | uppercase}}
+                        <a href="#" class="button">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-sm-3 styled-select">

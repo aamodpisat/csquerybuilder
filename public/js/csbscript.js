@@ -16,5 +16,3 @@ $(function () {
 		$('#editModal').modal('show');
 	});
 });
-
-
