@@ -571,11 +571,7 @@ body.modal-open{
     .content-env-sec{
       overflow: hidden;
       .display-flex(flex);
-      -webkit-justify-content: center;
-      -moz-justify-content: center;
-      -ms-justify-content: center;
-      -o-justify-content: center;
-      justify-content: center;
+      .justify-content(center);
       background-color: @white;
       padding: 40px 0;
       .border-radius(5px);
@@ -1088,11 +1084,7 @@ body.modal-open{
           margin-bottom: 3px;
           overflow:hidden;
           .display-flex(flex);
-          -webkit-justify-content: center;
-          -moz-justify-content: center;
-          -ms-justify-content: center;
-          -o-justify-content: center;
-          justify-content: center;
+          .justify-content(center);
           .modal-box{
             .select2-dropdown-open{
               .select2-choice{
@@ -1126,6 +1118,10 @@ body.modal-open{
             .transition(0.2s ease-in);
             &:hover{
               background: @red;
+            }
+            span{
+              text-shadow: none;
+              color: @white;
             }
           }
         }
