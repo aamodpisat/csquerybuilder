@@ -724,7 +724,6 @@ body.modal-open {
   -moz-justify-content: center;
   -ms-justify-content: center;
   -o-justify-content: center;
-  justify-content: center;
   background-color: #ffffff;
   padding: 40px 0;
   -webkit-border-radius: 5px;
@@ -1267,7 +1266,6 @@ body.modal-open {
   -moz-justify-content: center;
   -ms-justify-content: center;
   -o-justify-content: center;
-  justify-content: center;
 }
 .modal .modal-dialog .modal-content .modal-body .form-group .modal-box .select2-dropdown-open .select2-choice {
   border: 1px solid #009688;
@@ -1304,6 +1302,10 @@ body.modal-open {
 }
 .modal .modal-dialog .modal-content .modal-footer .button-wrap .btn-sm:hover {
   background: #e64b50;
+}
+.modal .modal-dialog .modal-content .modal-footer .button-wrap .btn-sm span {
+  text-shadow: none;
+  color: #ffffff;
 }
 .modal.in .modal-dialog {
   -webkit-transform: translate3d(0, 50%, 0) !important;
